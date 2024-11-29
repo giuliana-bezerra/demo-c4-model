@@ -1,0 +1,13 @@
+@startuml BibliotecaComponent
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Container(api, "API Backend", "Spring Boot", "API REST para funcionalidades de backend") {
+    Component(controller, "Controlador REST", "Controlador Spring MVC", "Recebe requisições HTTP")
+    Component(service, "Serviço", "Classe de Serviço", "Contém lógica de negócio")
+    Component(repository, "Repositório", "Interface JPA", "Gerencia operações de banco de dados")
+}
+
+Rel(controller, service, "Chamada de Métodos")
+Rel(service, repository, "Consulta ao BD")
+
+@enduml
